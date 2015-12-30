@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:edit , :update]
+  before_action :set_message, only: [:edit , :update ,:destroy]
   def index
     #メッセージをすべて取得する。
     @messages = Message.all
@@ -17,6 +17,12 @@ class MessagesController < ApplicationController
       render 'edit'
     end
   end
+
+  def destroy
+    @message.destroy
+    redirect_to root_path, notice:'メッセージを削除しました'
+  end
+  
 
   def create
     @message = Message.new(message_params)
