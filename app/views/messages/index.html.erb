@@ -12,6 +12,9 @@
   </div>
 </div>
 
+<% #部分テンプレートを読み込んでいる %>
+<%= render 'form' %>
+
 <%= form_for(@message) do |f| %>
  <% if @message.errors.present? %>
   <div class="alert alert-danger">
